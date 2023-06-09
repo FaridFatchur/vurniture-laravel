@@ -31,8 +31,31 @@
                     </div>
 
                     <div class="input-data">
+                        <input type="text" id="fullname" name="fullname">
+                        <label for="fullname">Full Name</label>
+                    </div>
+
+                    <div class="input-data">
+                        <input type="date" id="dateOfBirth" name="dateOfBirth">
+                        <label for="dateOfBirth">Date Of Birth</label>
+                    </div>
+
+                    <div class="input-data">
+                        <label for="gender">Gender</label>
+                        <select name="gender" id="">
+                            <option value="Man">Man</option>
+                            <option value="Women">Woman</option>
+                        </select>
+                    </div>
+
+                    <div class="input-data">
                         <input type="email" id="email" name="email">
                         <label for="email">Email</label>
+                    </div>
+
+                    <div class="input-data">
+                        <input type="text" id="phoneNum" name="phoneNum">
+                        <label for="phoneNum">Phone Number</label>
                     </div>
 
                     <div class="input-data">

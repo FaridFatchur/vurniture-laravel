@@ -125,33 +125,27 @@
                             <div class="pers-desc">
                                 <div class="full-sym">
                                     <span class="sym">Name</span>
-                                    <span class="sym-desc" id="name">Seok Matthew</span>
-                                    <span class="edit" onclick="edit('name')">Edit</span>
+                                    <span class="sym-desc" id="name">{{$dataUser['fullname']}}</span>
                                 </div>
                                 <div class="full-sym">
                                     <span class="sym">Date of Birth</span>
-                                    <span class="sym-desc" id="dob">28 May 2002</span>
-  									<span class="edit" onclick="edit('dob')">Edit</span>
+                                    <span class="sym-desc" id="dob">{{$dataUser['dateOfBirth']}}</span>
                                 </div>
                                 <div class="full-sym">
 									<span class="sym">Gender</span>
-									<span class="sym-desc" id="gender">Man</span>
-									<span class="edit" onclick="edit('gender')">Edit</span>
+									<span class="sym-desc" id="gender">{{$dataUser['gender']}}</span>
 								  </div>
 								  <div class="full-sym">
 									<span class="sym">Email</span>
-									<span class="sym-desc" id="email">SeokMatthew@gmail.com</span>
-									<span class="edit" onclick="edit('email')">Edit</span>
+									<span class="sym-desc" id="email">{{$dataUser['email']}}</span>
 								  </div>
 								  <div class="full-sym">
 									<span class="sym">Phone Number</span>
-									<span class="sym-desc" id="phone">081234567890</span>
-									<span class="edit" onclick="edit('phone')">Edit</span>
+									<span class="sym-desc" id="phone">{{$dataUser['phoneNum']}}</span>
 								  </div>
 								  <div class="full-sym">
 									<span class="sym">Password</span>
-									<span class="sym-desc" id="password">********</span>
-									<span class="edit" onclick="edit('password')">Edit</span>
+									<span class="sym-desc" id="pass">********</span>
 								  </div>
                             </div>
                         </div>

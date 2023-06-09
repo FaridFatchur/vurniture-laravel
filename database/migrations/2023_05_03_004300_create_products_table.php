@@ -18,6 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('qty');
             $table->bigInteger('price');
+            $table->string('cat');
+            $table->string('pic');
             $table->timestamps();
         });
     }

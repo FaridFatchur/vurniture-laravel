@@ -26,7 +26,7 @@ class UserController extends Controller
 
     public function userDB()
     {
-        $dataUser=User::all();
+        $dataUser=Auth::user();
         return view('dbuser.dashboardUser', compact('dataUser'));
     }
 

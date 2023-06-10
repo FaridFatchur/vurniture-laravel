@@ -134,6 +134,8 @@
 													<!-- <th>Image</th> -->
 													<th>Quantity</th>
 													<th>Price</th>
+													<th>Category</th>
+													<th>Picture</th>
 													<th>Act</th>
 												</tr>
 												@foreach($dataProduct as $item)
@@ -142,6 +144,8 @@
 													<td>{{$item['name']}}</td>
 													<td>{{$item['qty']}}</td>
 													<td>{{$item['price']}}</td>
+													<td>{{$item['cat']}}</td>
+													<td>{{$item['pic']}}</td>
 													<td><button><a href="{{route('products.edit', $item['id'])}}">edit</a></button>
 													<form method="POST" action="{{route('products.destroy', $item['id'])}}">
 														@csrf

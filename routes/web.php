@@ -86,4 +86,4 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 });
 
 // USER
-Route::get('/dashboard', [UserController::class, 'userDB'])->name('xdashboard');
+Route::get('/dashboard', [UserController::class, 'userDB'])->name('dashboard');

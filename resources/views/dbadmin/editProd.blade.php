@@ -26,6 +26,14 @@
             <label for="perPrice">Price</label>
             <input type="number" name="price" id="price" value="{{$product->price}}">
         </div>
+        <div class="product-form">
+            <label for="cat">Category</label>
+            <input type="text" name="cat" id="cat" value="{{$product->cat}}">
+        </div>
+        <div class="product-form">
+            <label for="pic">Picture Link</label>
+            <input type="text" name="pic" id="pic" value="{{$product->pic}}">
+        </div>
 
         <div class="form_action--button">
             <input type="submit" class="submit" value="Submit">

@@ -21,7 +21,7 @@
 <body class="login-body">
     <!-- login section -->
     <div class="wrapper">
-        <div class="login-form">
+        <div class="login-form">    
             <form action="{{route('login')}}" method="post">
                 @csrf
                 <h1>Login</h1>
@@ -39,6 +39,12 @@
                 <div class="checkbox">
                     <label><input type="checkbox"> Remember me</label>
                 </div>
+
+                @if (Session::has('error'))
+                <div class="error-message">
+                    {{ Session::get('error') }}
+                </div>
+                @endif
 
                 <button type="submit" class="login-btn">Login</button>
                 

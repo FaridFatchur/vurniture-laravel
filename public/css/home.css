@@ -106,7 +106,7 @@ body {
 }
 
 .checkbox {
-    margin: 20px 20px;
+    margin: 10px 20px;
 }
 
 .checkbox label {
@@ -163,7 +163,7 @@ body {
 .sign-up-form {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: auto;
     top: 0;
     left: 0;
     right: 0;
@@ -178,6 +178,7 @@ body {
 .sign-up-form h1{
     font-size: 30px;
     color: var(--txt-color);
+    margin-top: 30px;
     margin-bottom: 40px;
     text-align: center;
 }
@@ -187,7 +188,7 @@ body {
     font-size: 14px;
     width: 275px;
     height: 35px;
-    margin: 20px 20px;
+    margin: 0px 20px;
     background: var(--btn-color);
     box-shadow: 0 1px 5px 0 rgb(192 192 192 / 75%);
     border: 1px solid rgb(0 0 0 / 50%);
@@ -212,6 +213,10 @@ body {
 
 .to-login a:hover {
     color: var(--brown-based-color);
+}
+
+.to-login p {
+    margin-bottom: 30px;
 }
 
 /******************** header section ********************/
@@ -510,3 +515,11 @@ body {
     margin-bottom: 40px;
     text-align: center;
 }
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }

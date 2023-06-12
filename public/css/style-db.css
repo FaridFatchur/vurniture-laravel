@@ -611,8 +611,8 @@ body {
 
 .product-form input {
     font-size: 14px;
-	width: 275px;
-    /* width: 925px; */
+	width: 1125px;
+    /* width: 900px; */
     height: 35px;
     padding: 0 15px;
     border: 1px solid rgb(0 0 0 / 50%);
@@ -637,6 +637,22 @@ body {
 	background: var(--light);
 }
 
+.form_action--button .back:hover {
+	background: var(--light);
+}
+
+.tambah-but .add:hover {
+	background: #ff9263;
+}
+
+.act-but .edit:hover{
+	background: #ff9263;
+}
+
+.act-but .del:hover{
+	background: #ff9263;
+}
+
 .form_action--button .reset {
 	font-size: 14px;
     width: 70px;
@@ -647,6 +663,61 @@ body {
     border-radius: 10px;
     transition: all .50s ease;
 	cursor: pointer;
+}
+
+.form_action--button .back {
+	font-size: 14px;
+    width: 70px;
+    height: 35px;
+    background: var(--red);
+    box-shadow: 0 1px 5px 0 rgb(192 192 192 / 75%);
+    border: 1px solid rgb(0 0 0 / 50%);
+    border-radius: 10px;
+    transition: all .50s ease;
+	cursor: pointer;
+}
+
+.act-but .edit{
+	font-size: 10px;
+    width: 50px;
+    height: 20px;
+    background: var(--red);
+    box-shadow: 0 1px 5px 0 rgb(192 192 192 / 75%);
+    border: 2px solid #ff9263;
+    border-radius: 10px;
+    transition: all .50s ease;
+	cursor: pointer;
+	color: #fde6dc;
+}
+
+.act-but .del{
+	font-size: 10px;
+    width: 50px;
+    height: 20px;
+    background: var(--red);
+    box-shadow: 0 1px 5px 0 rgb(192 192 192 / 75%);
+    border: 2px solid #ff9263;
+    border-radius: 10px;
+    transition: all .50s ease;
+	cursor: pointer;
+	color: #fde6dc;
+}
+
+.tambah-but {
+	text-align: right;
+}
+
+.tambah-but .add {
+	font-size: 18px;
+    width: 100px;
+    height: 40px;
+    background: var(--red);
+    box-shadow: 0 1px 5px 0 rgb(192 192 192 / 75%);
+    border: 2px solid #ff9263;
+    border-radius: 10px;
+    transition: all .50s ease;
+	cursor: pointer;
+	color: #fde6dc;
 }
 
 .form_action--button .submit:hover {
@@ -940,4 +1011,8 @@ body {
 .ct-btn i:hover {
     color: var(--txt-color);
     /* transform: translateY(-2.5px); */
+}
+
+.alert-success {
+	color: green;
 }

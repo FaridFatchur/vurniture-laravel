@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, intial-scale=1.0">
@@ -71,6 +73,14 @@
                     <div class="checkbox">
                         <label><input type="checkbox"> I agree to the terms & conditions</label>
                     </div>
+
+                    @if ($errors->any())
+                        <div class="error-message">
+                            @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                            @endforeach
+                        </div>
+                    @endif
                 
                     <button type="submit" class="sign-up-btn">Sign Up</button>
                 <div class="to-login">

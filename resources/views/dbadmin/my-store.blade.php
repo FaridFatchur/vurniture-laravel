@@ -21,13 +21,13 @@
 		</a>
 		<ul class="side-menu top">
 			<li>
-				<a href="home-db.html">
+				<a href="{{route('admin.dashboard')}}">
 					<i class='bx bxs-home'></i>
 					<span class="text">Home</span>
 				</a>
 			</li>
 			<li class="active">
-				<a href="my-store.html">
+				<a href="{{route('products.index')}}">
 					<i class='bx bxs-shopping-bag-alt' ></i>
 					<span class="text">My Store</span>
 				</a>
@@ -117,11 +117,8 @@
 							<i class='bx bx-filter' ></i>
 						</div>
 						@if (session('success'))
-    						<div class="alert alert-success">{{ session('success') }}</div>
+    						<div class="alert-success">{{ session('success') }}</div>
 							@endif
-						<div class="tambah-but">
-							<button><a href="{{route('products.create')}}">tambah</a></button>
-						</div>
 						<table>
 							<tr>
 								<td>
@@ -146,12 +143,16 @@
 													<td>{{$item['price']}}</td>
 													<td>{{$item['cat']}}</td>
 													<td>{{$item['pic']}}</td>
-													<td><button><a href="{{route('products.edit', $item['id'])}}">edit</a></button>
-													<form method="POST" action="{{route('products.destroy', $item['id'])}}">
-														@csrf
-														@method('delete')
-														<button>Del</button></form>
+													
+													<td class="act-but">
+														<input type="button" class="edit" value="Edit" onclick="window.location.href='{{ route('products.edit', $item['id']) }}'">
+														<form method="POST" action="{{route('products.destroy', $item['id'])}}">
+															@csrf
+															@method('delete')
+															<button class="del">Del</button>
+														</form>
 													</td>
+													
 												</tr>
 												@endforeach
 											</thead>
@@ -162,6 +163,9 @@
 								</td>
 							</tr>
 						</table>
+						<div class="tambah-but">
+							<input type="button" class="add" value="Add +" onclick="window.location.href='{{ route('products.create') }}'">
+						</div>
 					</div>
 				</div>
 		</main>

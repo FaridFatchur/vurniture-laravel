@@ -9,6 +9,8 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 
 class UserController extends Controller
 {
@@ -48,16 +50,9 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        // $request->validate([
-        //     'productCode' => 'required',
-        //     'product' => 'required',
-        //     'qty' => 'required|numeric',
-        //     'perPrice' => 'required|numeric',
-        // ]);
-
         // dd($request->all());
 
-        $data = $request->all();
+        $data = $request->all();    
         $data['password'] = Hash::make($request['password']);
         // dd($data['pass']);s
 
@@ -82,8 +77,10 @@ class UserController extends Controller
             } 
         } else {
             // Authentication failed
-            return back()->withErrors(['usn' => 'Invalid username or password.']);
+            Session::flash('error', 'Invalid username or password.');
+            return redirect()->back();
         }
+
     }
 
     public function dashboard()

@@ -611,7 +611,7 @@ body {
 
 .product-form input {
     font-size: 14px;
-	width: 1125px;
+	width: 100%;
     /* width: 900px; */
     height: 35px;
     padding: 0 15px;
@@ -730,7 +730,7 @@ body {
     gap: 10px;
 	overflow-x: auto;
 	scrollbar-width: 10px;
-	overflow: scroll !important;
+	/* overflow: scroll !important; */
 }
 
 .card {
@@ -811,7 +811,7 @@ body {
 
 .sym-desc {
     color: #696969;
-    width: 250px;
+    width: 400px;
     display: inline-block;
 }
 
@@ -822,7 +822,7 @@ body {
 /* Transaction List */
 .card-tl {
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    width: 940px;
+    width: 1200px;
     border-radius: 10px;
     padding: 25px;
     background-color: #FBFBFB;
@@ -902,7 +902,7 @@ body {
 .wl-card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 950px;
+    width: 1200px;
     height: 200px;
     border-radius: 15px;
     background-color: #FBFBFB;

@@ -22,6 +22,12 @@ class ProductController extends Controller
         return view('dbadmin.my-store', compact('dataProduct'));
     }
 
+    public function isaura()
+    {
+        $dataProduct=Product::all();
+        return view('home.home', compact('dataProduct'));
+    }
+
 
 
     /**

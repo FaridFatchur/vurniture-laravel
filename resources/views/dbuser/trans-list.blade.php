@@ -16,36 +16,36 @@
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="#" class="brand">
+		<a href="/" class="brand">
 			<span class="text">vurniture</span>
 		</a>
 		<ul class="side-menu top">
 			<li>
-				<a href="home-db.html">
+				<a href="/">
 					<i class='bx bxs-home'></i>
 					<span class="text">Home</span>
 				</a>
 			</li>
 			<li>
-				<a href="dashboardUser.html">
+				<a href="dashboard">
 					<i class='bx bxs-user' ></i>
 					<span class="text">My Profile</span>
 				</a>
 			</li>
 			<li class="active">
-				<a href="trans-list.html">
+				<a href="trans-list">
 					<i class='bx bxs-receipt' ></i>
 					<span class="text">Transaction List</span>
 				</a>
 			</li>
 			<li>
-				<a href="inbox.html">
+				<a href="inbox">
 					<i class='bx bxs-message-dots' ></i>
 					<span class="text">Inbox</span>
 				</a>
 			</li>
 			<li>
-				<a href="wish-list.html">
+				<a href="wish-list">
 					<i class='bx bxs-bookmark-heart' ></i>
 					<span class="text">Wish List</span>
 				</a>
@@ -53,16 +53,22 @@
 		</ul>
 		<ul class="side-menu">
 			<li>
-				<a href="settings.html">
+				<a href="settings">
 					<i class='bx bxs-cog' ></i>
 					<span class="text">Settings</span>
 				</a>
 			</li>
 			<li>
-				<a href="home.html" class="logout">
-					<i class='bx bx-log-out' ></i></i>
+				<a href="{{ route('logout') }}" class="logout"
+					onclick="event.preventDefault();
+						document.getElementById('logout-form').submit();">
+					<i class='bx bx-log-out' ></i>
 					<span class="text">Logout</span>
 				</a>
+
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					@csrf
+				</form>
 			</li>
 		</ul>
 	</section>

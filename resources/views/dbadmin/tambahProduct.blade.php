@@ -136,6 +136,10 @@
                                 <label for="cat">Category</label>
                                 <input type="text" name="cat" id="cat">
                             </div>
+							<div class="product-form">
+                                <label for="cat">Desc</label>
+                                <input type="text" name="desc" id="desc">
+                            </div>
                             <div class="product-form">
                                 <label for="pic">Picture Link</label>
                                 <input type="text" name="pic" id="pic">

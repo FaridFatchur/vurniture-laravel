@@ -22,7 +22,7 @@
 
 <!-- sign up section -->
 <body class="sign-up-body">
-    <div class="wrapper">
+    <div class="wrapper-su">
         <div class="sign-up-form">
             <form id="form" action="{{ route('users.store') }}" method="POST" autocomplete="off">
                 <h1>Sign Up</h1>
@@ -58,6 +58,11 @@
                     <div class="input-data">
                         <input type="text" id="phoneNum" name="phoneNum">
                         <label for="phoneNum">Phone Number</label>
+                    </div>
+
+                    <div class="input-data">
+                        <input type="text" id="address" name="address">
+                        <label for="phoneNum">Address</label>
                     </div>
 
                     <div class="input-data">

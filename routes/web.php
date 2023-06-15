@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 
 
 /*
@@ -17,9 +18,7 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('home.home');
-});
+
 
 Route::get('/categories', function () {
     return view('home/categories');
@@ -80,10 +79,48 @@ Route::get('/wish-list', function () {
     return view('dbuser.wish-list');
 });
 
-Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
-    // Admin Dashboard
-    Route::get('/dashboard', [UserController::class, 'adminHome'])->name('admin.dashboard');
+// User
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [UserController::class, 'userDB'])->name('dashboard');
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });
 
-// USER
-Route::get('/dashboard', [UserController::class, 'userDB'])->name('dashboard');
+// Admin
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [UserController::class, 'adminHome'])->name('admin.dashboard');
+    Route::post('/logout', [UserController::class, 'logout'])->name('admin.logout');
+});
+
+
+
+Route::get('/', [ProductController::class, 'isaura']);
+
+// Route::get('/vurniture/addtocart/{id}', [ProductsController::class, 'addToCart'])->name('add.to.cart');
+
+Route::get('/vurniture/productdetail/{id}', [OrderController::class, 'index']);
+
+Route::post('/vurniture/productdetail/{id}', [OrderController::class, 'product']);
+
+Route::get('/vurniture/successfully_added', function () {
+    return view('/home/cart/add/success');
+});
+
+Route::get('/vurniture/failed_to_add', function () {
+    return view('/home/cart/add/failed');
+});
+
+Route::get('/vurniture/cart', [OrderController::class, 'orders']);
+
+Route::delete('/vurniture/cart/{id}', [OrderController::class, 'delete']);
+
+Route::get('/vurniture/removed_from_cart', function () {
+    return view('/home/cart/remove/success');
+});
+
+Route::get('vurniture/checkout_confirm', [OrderController::class, 'confirm']);
+
+Route::get('vurniture/checkout_success', function () {
+    return view('/home/checkout/success');
+});
+
+

@@ -7,7 +7,7 @@
     <title>Vurniture</title>
     
     <!-- custom css -->
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
 
     <!-- box icons -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -33,72 +33,48 @@
         
         <div class="btn">
             <a href="#"><i class='bx bx-search' id="search-btn"></i></a>
-            <a href="#"><i class='bx bx-shopping-bag' id="shop-btn"></i></a>
-            <a href="/login"><i class='bx bx-user' id="user-btn"></i></a>
+            <a href="{{ url('/vurniture/cart') }}"><i class='bx bx-shopping-bag' id="shop-btn"></i></a>
+            <a href="{{ url('/login') }}"><i class='bx bx-user' id="user-btn"></i></a>
             <a href="#"><i class='bx bx-menu' id="menu-btn"></i></a>
         </div>
     </header>
 
-    <!-- home section -->
     <section class="home">
         <div class="banner">
             <h1>Get your furniture</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            <!-- <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                 <br> Porro possimus assumenda aut pariatur eaque aliquam
                 <br> perspiciatis tempore aperiam non atque! Distinctio
                 <br> corrupti pariatur officia ducimus vitae sunt ipsum
                 <br> nemo alias.
-            </p>
-            <a href="home.html#shop" class="shop-now-btn">Shop Now</a>
+            </p> -->
+            <a href="{{ url('#shop') }}" class="shop-now-btn">Shop Now</a>
         </div>
     </section>
 
     <!-- shop section -->
     <section class="shop" id="shop">
         <div class="title">
-            <h2>Recommendations</h2>
+            <h2>Our Products</h2>
         </div>
 
         <div class="row">
+            @foreach($dataProduct as $product)
             <div class="catalog">
-                <img src="img/catalog-bed.jpg">
-                <h3>Bed</h3>
-                <h4>Rp0</h4>
+                <img src="{{ url('uploads') }}/{{ $product->pic }}">
+                <h3>{{ $product->name }}</h3>
+                <h4>Rp{{ number_format($product->price) }}</h4>
                 <div class="atc-btn">
-                    <a href="#">Add to Cart</a>
+                    <a href="{{ url('/vurniture/productdetail') }}/{{ $product->id }}" role="button">Check Now</a>
                 </div>
             </div>
-
-            <div class="catalog">
-                <img src="img/catalog-chair.jpg">
-                <h3>Chair</h3>
-                <h4>Rp0</h4>
-                <div class="atc-btn">
-                    <a href="#">Add to Cart</a>
-                </div>
-            </div>
-
-            <div class="catalog">
-                <img src="img/catalog-sofa.jpg">
-                <h3>Sofa</h3>
-                <h4>Rp0</h4>
-                <div class="atc-btn">
-                    <a href="#">Add to Cart</a>
-                </div>
-            </div>
-
-            <div class="catalog">
-                <img src="img/catalog-table.jpg">
-                <h3>Table</h3>
-                <h4>Rp0</h4>
-                <div class="atc-btn">
-                    <a href="#">Add to Cart</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </section>
 
+
     <!-- custom js -->
-    <script src="js/script.js"></script>
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+    
 </body>
 </html>

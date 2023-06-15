@@ -16,7 +16,7 @@
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="#" class="brand">
+		<a href="/" class="brand">
 			<span class="text">vurniture</span>
 		</a>
 		<ul class="side-menu top">
@@ -59,10 +59,16 @@
 				</a>
 			</li>
 			<li>
-				<a href="home.html" class="logout">
-					<i class='bx bx-log-out' ></i></i>
+				<a href="{{ route('logout') }}" class="logout"
+					onclick="event.preventDefault();
+						document.getElementById('logout-form').submit();">
+					<i class='bx bx-log-out' ></i>
 					<span class="text">Logout</span>
 				</a>
+
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					@csrf
+				</form>
 			</li>
 		</ul>
 	</section>
@@ -142,6 +148,10 @@
 								  <div class="full-sym">
 									<span class="sym">Phone Number</span>
 									<span class="sym-desc" id="phone">{{$dataUser['phoneNum']}}</span>
+								  </div>
+								  <div class="full-sym">
+									<span class="sym">Address</span>
+									<span class="sym-desc" id="address">{{$dataUser['address']}}</span>
 								  </div>
 								  <div class="full-sym">
 									<span class="sym">Password</span>

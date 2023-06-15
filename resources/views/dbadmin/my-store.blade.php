@@ -132,6 +132,7 @@
 													<th>Quantity</th>
 													<th>Price</th>
 													<th>Category</th>
+													<th>Description</th>
 													<th>Picture</th>
 													<th>Act</th>
 												</tr>
@@ -142,6 +143,7 @@
 													<td>{{$item['qty']}}</td>
 													<td>{{$item['price']}}</td>
 													<td>{{$item['cat']}}</td>
+													<td>{{$item['desc']}}</td>
 													<td>{{$item['pic']}}</td>
 													
 													<td class="act-but">

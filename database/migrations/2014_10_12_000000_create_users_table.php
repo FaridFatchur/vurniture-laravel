@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->enum('gender',['Man','Woman'])->nullable();
             $table->string('email')->unique();
             $table->string('phoneNum');
+            $table->string('address');
             $table->string('password');
             $table->boolean('isadmin')->default(false);
             $table->rememberToken();

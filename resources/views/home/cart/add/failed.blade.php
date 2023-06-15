@@ -47,7 +47,7 @@
                 <br>
                 Check the available stok.
             </h4>
-            <a href="{{ url('/vurniture/home') }}" class="button-back">Back to Home</a>
+            <a href="/" class="button-back">Back to Home</a>
         </div>
     </div>
 </body>

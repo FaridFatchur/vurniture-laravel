@@ -47,7 +47,7 @@
                 <br>
                 Check your cart.
             </h4>
-            <a href="{{ url('/vurniture/home') }}" class="button-back">Back to Home</a>
+            <a href="{{ url('/') }}" class="button-back">Back to Home</a>
         </div>
     </div>
 </body>

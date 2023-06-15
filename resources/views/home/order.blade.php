@@ -7,7 +7,7 @@
     <title>Vurniture</title>
     
     <!-- custom css -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
 
     <!-- box icons -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -26,9 +26,9 @@
         </div>
 
         <ul class="navbar">
-            <li><a href="{{ url('/vurniture/home') }}">Home</a></li>
-            <li><a href="{{ url('/vurniture/categories') }}">Categories</a></li>
-            <li><a href="{{ url('/vurniture/aboutus') }}">About Us</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/categories')">Categories</a></li>
+            <li><a href="/about-us">About Us</a></li>
         </ul>
         
         <div class="btn">
@@ -48,16 +48,19 @@
         <div class="row">
             @foreach($order_details as $order_detail)
             <div class="catalog">
-                <img src="{{ url('uploads') }}/{{ $order_detail->products->image }}">
-                <h3>{{ $order_detail->products->name }} ({{ $order_detail->product_qty }})</h3>
-                <h4>Rp{{ number_format($order_detail->total) }}</h4>
-                <form class="atc-btn-del" action="{{ url('/vurniture/cart') }}/{{ $order_detail->id }}" method="post">
-                    @csrf
-                    {{ method_field(('delete')) }}
-                    <button type="submit">Delete</button>
-                </form>
+                {{-- @if($order_detail->product) --}}
+                    <img src="{{ url('uploads') }}/{{ $order_detail->products->pic }}">
+                    <h3>{{ $order_detail->products->name }} ({{ $order_detail->product_qty }})</h3>
+                    <h4>Rp{{ number_format($order_detail->total) }}</h4>
+                    <form class="atc-btn-del" action="{{ url('/vurniture/cart') }}/{{ $order_detail->id }}" method="post">
+                        @csrf
+                        {{ method_field(('delete')) }}
+                        <button type="submit">Delete</button>
+                    </form>
+                {{-- @endif --}}
             </div>
-            @endforeach
+        @endforeach
+        
         </div>
     </section>
 

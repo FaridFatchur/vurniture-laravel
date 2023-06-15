@@ -36,7 +36,7 @@ class OrderController extends Controller
         // validate product stock
         $order_detail = OrderDetail::find($id);
 
-        if($request->order_qty > $product->quantity) {
+        if($request->order_qty > $product->qty) {
             // Alert::error('Failed', 'Failed to add product to cart. Check the available stok.');
             // return redirect('/vurniture/home');
             return redirect('/vurniture/failed_to_add');
@@ -96,7 +96,7 @@ class OrderController extends Controller
             $order_details = OrderDetail::where('order_id', $order->id)->get();
         }
 
-        return view('/web/order', compact('order', 'order_details'));
+        return view('/home/order', compact('order', 'order_details'));
     }
 
     public function delete($id)
@@ -118,7 +118,7 @@ class OrderController extends Controller
     public function confirm()
     {
         $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
-
+        // dd($order->all());
         $order_id = $order->id;
 
         $order->status = 1;
@@ -128,7 +128,7 @@ class OrderController extends Controller
 
         foreach ($order_details as $order_detail) {
             $product = Product::where('id', $order_detail->product_id)->first();
-            $product->quantity = $product->quantity - $order_detail->product_qty;
+            $product->qty = $product->qty - $order_detail->product_qty;
             $product->update();
         }
 

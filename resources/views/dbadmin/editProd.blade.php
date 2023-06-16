@@ -16,7 +16,7 @@
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="#" class="brand">
+		<a href="/" class="brand">
 			<span class="text">vurniture</span>
 		</a>
 		<ul class="side-menu top">
@@ -139,7 +139,7 @@
                             </div>
 							<div class="product-form">
                                 <label for="cat">Desc</label>
-                                <input type="text" name="desc" id="desc">
+                                <input type="text" name="desc" id="desc" value="{{$product->desc}}">
                             </div>
                             <div class="product-form">
                                 <label for="pic">Picture Link</label>

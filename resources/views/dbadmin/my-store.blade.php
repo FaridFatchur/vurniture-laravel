@@ -16,7 +16,7 @@
 
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="#" class="brand">
+		<a href="/" class="brand">
 			<span class="text">vurniture</span>
 		</a>
 		<ul class="side-menu top">

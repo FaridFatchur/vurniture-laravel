@@ -32,9 +32,10 @@
                 </div>
 
                 <div class="input-data">
-                    <input type="password" name="password" id="password" placeholder="password" required>
-                    <label for="">Password</label>
-                </div>
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                    <label for="password">Password</label>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()"><i class="bx bx-show"></i></span>
+                </div>                
 
                 <div class="checkbox">
                     <label><input type="checkbox"> Remember me</label>
@@ -54,5 +55,19 @@
             </form>
         </div>
     </div>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var toggleButton = document.querySelector(".toggle-password");
+            
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.innerHTML = '<i class="bx bx-hide"></i>';
+            } else {
+                passwordInput.type = "password";
+                toggleButton.innerHTML = '<i class="bx bx-show"></i>';
+            }
+        }
+    </script>
 </body>
 </html>

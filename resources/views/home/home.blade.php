@@ -34,7 +34,15 @@
         <div class="btn">
             <a href="#"><i class='bx bx-search' id="search-btn"></i></a>
             <a href="{{ url('/vurniture/cart') }}"><i class='bx bx-shopping-bag' id="shop-btn"></i></a>
-            <a href="{{ url('/login') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @auth
+            @if (Auth::user()->isadmin)
+                <a href="{{ url('/admin/dashboard') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @else
+                <a href="{{ url('/dashboard') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @endif
+            @else
+                <a href="{{ url('/login') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @endauth
             <a href="#"><i class='bx bx-menu' id="menu-btn"></i></a>
         </div>
     </header>

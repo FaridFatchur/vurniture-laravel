@@ -119,23 +119,33 @@
                             <thead>
                                 <tr>
                                     <th>Date</th>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Qty</th>
                                     <th>Total</th>
                                     <th>Status</th>
+									<th>Detail</th>
                                 </tr>
                             </thead>
                             <tbody>
+								<tr>
+									<p class="tf-text">Transfer money to the bank account (BCA) <strong>08821XXXXX</strong> c/o <strong>Annisa I A</strong> according to your total order and send the proof of transfer to <a href="https://wa.me/6288234108675"><strong>here</strong></a>.</p>
+								</tr>
+								@foreach($orders as $order)
                                 <tr>
-                                    <th>2023/03/31</th>
-                                    <th>X1MA Table</th>
-                                    <th>Rp. 990.000</th>
-                                    <th>1</th>
-                                    <th>Rp. 990.000</th>
-                                    <th>On the way</th>
+                                    <th>{{ $order->date }}</th>
+                                    <th>Rp{{ number_format($order->total) }}</th>
+                                    <th>
+										@if($order->status == 1)
+										Unpaid
+										@else
+										Paid
+										@endif
+									</th>
+									<th>
+										<div class="form_action--button">
+                                		<a href="{{ url('trans-list') }}/{{ $order->id }}">Check</a>
+									</th>
                                 </tr>
-                                <tr>
+								@endforeach
+                                <!-- <tr>
                                     <th>2023/02/12</th>
                                     <th>PDX0 Chair</th>
                                     <th>Rp. 259.000</th>
@@ -150,7 +160,7 @@
                                     <th>1</th>
                                     <th>Rp. 2.900.000</th>
                                     <th>Received</th>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>                          
                     </div>

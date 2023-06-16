@@ -50,7 +50,7 @@
     @if(!empty($order))
     <section class="cart">
         <div class="title">
-            <h2>Cart</h2>
+            <h2>Order Detail</h2>
         </div>
 
         <!-- <div class="row">
@@ -90,11 +90,11 @@
             <h4>{{ $order->date }}</h4>
             <hr>
             <h5>Rp{{ number_format($order->total) }}</h5>
-            <a href="{{ url('/vurniture/checkout_confirm') }}" class="button-back" onclick="return confirm('Are you sure you want to checkout all the products in the cart?');">Checkout</a>
+            <a href="{{ url('/trans-list') }}" class="button-back">Go to History Order</a>
         </div>
     </div>
 
-    @else
+    <!-- @else
     <section class="cart">
         <div class="title">
             <h2>Cart</h2>
@@ -107,9 +107,9 @@
             <h4>yyyy-mm-dd</h4>
             <hr>
             <h5>0</h5>
-            <a href="{{ url('/vurniture/checkout_confirm') }}" class="button-back" onclick="return confirm('Are you sure you want to checkout all the products in the cart?');">Checkout</a>
+            <a href="{{ url('/trans-list') }}" class="button-back">Go to History Order</a>
         </div>
-    </div>
+    </div> -->
     @endif
 
     <!-- @if(empty($order))

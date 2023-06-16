@@ -28,51 +28,58 @@
                 <h1>Sign Up</h1>
                     @csrf
                     <div class="input-data">
-                        <input type="text" id="usn" name="usn">
+                        <input type="text" id="usn" name="usn" value="{{ old('usn')}}">
                         <label for="usn">Username</label>
                     </div>
 
                     <div class="input-data">
-                        <input type="text" id="fullname" name="fullname">
+                        <input type="text" id="fullname" name="fullname" value="{{ old('fullname')}}">
                         <label for="fullname">Full Name</label>
                     </div>
 
                     <div class="input-data">
-                        <input type="date" id="dateOfBirth" name="dateOfBirth">
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" max="{{ old('dateOfBirth') ? old('dateOfBirth') : '' }}">
                         <label for="dateOfBirth">Date Of Birth</label>
                     </div>
+                    
+                    <script>
+                        var today = new Date().toISOString().split('T')[0];
+                        document.getElementById("dateOfBirth").max = today;
+                    </script>                    
 
                     <div class="input-data">
-                        <label for="gender">Gender</label>
-                        <select name="gender" id="">
-                            <option value="Man">Man</option>
-                            <option value="Women">Woman</option>
+                        <label class="gender" for="gender">Gender</label>
+                        <select name="gender" id="gender">
+                            <option value="Man" {{ old('gender') === 'Man' ? 'selected' : '' }}>Man</option>
+                            <option value="Woman" {{ old('gender') === 'Woman' ? 'selected' : '' }}>Woman</option>
                         </select>
                     </div>
 
                     <div class="input-data">
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="email" value="{{ old('email')}}">
                         <label for="email">Email</label>
                     </div>
 
                     <div class="input-data">
-                        <input type="text" id="phoneNum" name="phoneNum">
+                        <input type="text" id="phoneNum" name="phoneNum" value="{{ old('phoneNum')}}">
                         <label for="phoneNum">Phone Number</label>
                     </div>
 
                     <div class="input-data">
-                        <input type="text" id="address" name="address">
+                        <input type="text" id="address" name="address" value="{{ old('address')}}">
                         <label for="phoneNum">Address</label>
                     </div>
 
                     <div class="input-data">
-                        <input type="password" id="pass" name="password">
+                        <input type="password" id="password" name="password" value="{{ old('password')}}">
                         <label for="password">Password</label>
+                        <span class="toggle-password" onclick="togglePasswordVisibility()"><i class="bx bx-show"></i></span>
                     </div>
 
                     <div class="input-data">
-                        <input type="password" id="pass2" name="pass2">
+                        <input type="password" id="pass2" name="pass2" value="{{ old('pass2')}}">
                         <label for="pass2">Re-input Password</label>
+                        <span class="toggle-password2" onclick="togglePasswordVisibility2()"><i class="bx bx-show"></i></span>
                     </div>
 
                     <div class="checkbox">
@@ -94,6 +101,35 @@
             </form>
         </div>
     </div>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var toggleButton = document.querySelector(".toggle-password");
+            
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.innerHTML = '<i class="bx bx-hide"></i>';
+            } else {
+                passwordInput.type = "password";
+                toggleButton.innerHTML = '<i class="bx bx-show"></i>';
+            }
+        }
+
+        function togglePasswordVisibility2() {
+            var passwordInput = document.getElementById("pass2");
+            var toggleButton = document.querySelector(".toggle-password2");
+            
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.innerHTML = '<i class="bx bx-hide"></i>';
+            } else {
+                passwordInput.type = "password";
+                toggleButton.innerHTML = '<i class="bx bx-show"></i>';
+            }
+        }
+
+
+    </script>
 </body>
 
 {{-- <!-- custom js -->

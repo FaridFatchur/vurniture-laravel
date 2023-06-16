@@ -21,6 +21,7 @@ class User extends Authenticatable
         'usn',
         'fullname',
         'dateOfBirth',
+        'gender',
         'email',
         'phoneNum',
         'address',

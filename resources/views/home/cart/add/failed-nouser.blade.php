@@ -22,32 +22,32 @@
     <!-- header section -->
     <header class="header">
         <div class="logo">
-            <img src="{{ asset('img/logo.png') }}">
+            <img src="img/logo.png">
         </div>
 
         <ul class="navbar">
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li><a href="{{ url('/categories') }}">Categories</a></li>
-            <li><a href="{{ url('/about-us') }}">About Us</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/categories">Categories</a></li>
+            <li><a href="/about-us">About Us</a></li>
         </ul>
         
         <div class="btn">
             <a href="#"><i class='bx bx-search' id="search-btn"></i></a>
             <a href="{{ url('/vurniture/cart') }}"><i class='bx bx-shopping-bag' id="shop-btn"></i></a>
-            <a href="{{ url('/vurniture/login') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            <a href="{{ '/login' }}"><i class='bx bx-user' id="user-btn"></i></a>
             <a href="#"><i class='bx bx-menu' id="menu-btn"></i></a>
         </div>
     </header>
 
     <div class="status-container">
         <div class="status-content">
-            <h3>Success</h3>
+            <h3>Failed</h3>
             <h4>
-                You have successfully ordered the product.
+                Failed to add product to cart.
                 <br>
-                Thank you.
+                Please try to login first.
             </h4>
-            <a href="{{ url('/trans-list') }}" class="button-back">Go to History Order</a>
+            <a href="/" class="button-back">Back to Home</a>
         </div>
     </div>
 </body>

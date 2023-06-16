@@ -33,8 +33,16 @@
         
         <div class="btn">
             <a href="#"><i class='bx bx-search' id="search-btn"></i></a>
-            <a href="#"><i class='bx bx-shopping-bag' id="shop-btn"></i></a>
-            <a href="/login"><i class='bx bx-user' id="user-btn"></i></a>
+            <a href="{{ url('/vurniture/cart') }}"><i class='bx bx-shopping-bag' id="shop-btn"></i></a>
+            @auth
+            @if (Auth::user()->isadmin)
+                <a href="{{ url('/admin/dashboard') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @else
+                <a href="{{ url('/dashboard') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @endif
+            @else
+                <a href="{{ url('/login') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @endauth
             <a href="#"><i class='bx bx-menu' id="menu-btn"></i></a>
         </div>
     </header>
@@ -46,56 +54,56 @@
         </div>
 
         <div class="box-container">
-            <a href="#">
+            <a href="vurniture/category/bed">
                 <div class="box">
                     <img src="img/icon-bed.png">
                     <h3>Bed</h3>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="vurniture/category/bookcase">
                 <div class="box">
                     <img src="img/icon-bookcase.png">
                     <h3>Bookcase</h3>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="vurniture/category/cabinet">
                 <div class="box">
                     <img src="img/icon-cabinet.png">
                     <h3>Cabinet</h3>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="vurniture/category/chair">
                 <div class="box">
                     <img src="img/icon-chair.png">
                     <h3>Chair</h3>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="vurniture/category/desk">
                 <div class="box">
                     <img src="img/icon-desk.png">
                     <h3>Desk</h3>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="vurniture/category/sofa">
                 <div class="box">
                     <img src="img/icon-sofa.png">
                     <h3>Sofa</h3>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="vurniture/category/table">
                 <div class="box">
                     <img src="img/icon-table.png">
                     <h3>Table</h3>
                 </div>
             </a>
 
-            <a href="#">
+            <a href="vurniture/category/wardrobe">
                 <div class="box">
                     <img src="img/icon-wardrobe.png">
                     <h3>Wardrobe</h3>

@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->date('date');
             $table->string('status');
             $table->integer('total');
+            // $table->integer('code');
             $table->timestamps();
         });
     }

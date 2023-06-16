@@ -10,6 +10,7 @@ use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 
 class UserController extends Controller
@@ -50,6 +51,22 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
+        $validator = Validator::make($request->all(), [
+            'usn' => 'required|min:6',
+            'fullname' => 'required',
+            'dateOfBirth' => 'required',
+            'gender' => 'required',
+            'email' => 'required|email',
+            'phoneNum' => 'required',
+            'address' => 'required',
+            'password' => 'required|min:6|regex:/^(?=.*[a-zA-Z])(?=.*\d).+$/',
+            'pass2' => 'required|same:password',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         // dd($request->all());
 
         $data = $request->all();    
@@ -58,7 +75,7 @@ class UserController extends Controller
 
         User::create($data);
 
-        return redirect('login')->with('success', 'Product created successfully.');
+        return redirect('login')->with('success', 'User created successfully.');
     }
 
     public function login(Request $request)

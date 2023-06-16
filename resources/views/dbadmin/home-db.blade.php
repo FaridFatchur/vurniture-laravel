@@ -21,7 +21,7 @@
 		</a>
 		<ul class="side-menu top">
 			<li class="active">
-				<a href="home-db.html">
+				<a href="{{route('admin.dashboard')}}">
 					<i class='bx bxs-home'></i>
 					<span class="text">Home</span>
 				</a>
@@ -59,10 +59,16 @@
 				</a>
 			</li>
 			<li>
-				<a href="home.html" class="logout">
-					<i class='bx bx-log-out' ></i></i>
+				<a href="{{ route('logout') }}" class="logout"
+					onclick="event.preventDefault();
+						document.getElementById('logout-form').submit();">
+					<i class='bx bx-log-out' ></i>
 					<span class="text">Logout</span>
 				</a>
+
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					@csrf
+				</form>
 			</li>
 		</ul>
 	</section>

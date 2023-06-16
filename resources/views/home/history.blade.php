@@ -7,7 +7,7 @@
     <title>Vurniture</title>
     
     <!-- custom css -->
-    <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
     <!-- box icons -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -22,32 +22,34 @@
     <!-- header section -->
     <header class="header">
         <div class="logo">
-            <img src="{{ asset('img/logo.png') }}">
+            <img src="img/logo.png">
         </div>
 
         <ul class="navbar">
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li><a href="{{ url('/categories') }}">Categories</a></li>
-            <li><a href="{{ url('/about-us') }}">About Us</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/categories">Categories</a></li>
+            <li><a href="/about-us">About Us</a></li>
         </ul>
         
         <div class="btn">
             <a href="#"><i class='bx bx-search' id="search-btn"></i></a>
             <a href="{{ url('/vurniture/cart') }}"><i class='bx bx-shopping-bag' id="shop-btn"></i></a>
-            <a href="{{ url('/vurniture/login') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @auth
+            @if (Auth::user()->isadmin)
+                <a href="{{ url('/admin/dashboard') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @else
+                <a href="{{ url('/dashboard') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @endif
+            @else
+                <a href="{{ url('/login') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            @endauth
             <a href="#"><i class='bx bx-menu' id="menu-btn"></i></a>
         </div>
     </header>
 
-    <div class="status-container">
-        <div class="status-content">
-            <h3>Success</h3>
-            <h4>
-                You have successfully ordered the product.
-                <br>
-                Thank you.
-            </h4>
-            <a href="{{ url('/trans-list') }}" class="button-back">Go to History Order</a>
+    <div class="product-details">
+        <div class="product-info">
+            <h2>History Order</h2>
         </div>
     </div>
 </body>

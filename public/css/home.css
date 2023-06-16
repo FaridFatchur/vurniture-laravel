@@ -86,7 +86,30 @@ body {
     transition: .5s;
 }
 
-.input-data input {
+/* .input-data label {
+    position: absolute;
+    left: 15px;
+    transform: translateY(-50%);
+    transition: .5s;
+    font-size: 12px;
+    top: 0;
+    background: var(--bg-color);
+    color: var(--txt-color);
+} */
+
+.input-data .gender {
+    position: absolute;
+    left: 15px;
+    transform: translateY(-50%);
+    transition: .5s;
+    font-size: 12px;
+    top: 0;
+    background: var(--bg-color);
+    color: var(--txt-color);
+}
+
+.input-data input,
+.input-data select {
     font-size: 14px;
     width: 275px;
     height: 35px;
@@ -97,12 +120,44 @@ body {
 }
 
 .input-data input:focus~label,
-
-.input-data input:valid~label {
+.input-data input:valid~label,
+.input-data select:focus~label,
+.input-data select:valid~label {
     font-size: 12px;
     top: 0;
     background: var(--bg-color);
     color: var(--txt-color);
+}
+
+
+
+.input-data .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.input-data .toggle-password2 {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+.input-data label {
+    position: absolute;
+    font-size: 14px;
+    top: 50%;
+    left: 15px;
+    color: rgb(0 0 0 / 50%);
+    transform: translateY(-50%);
+    transition: .5s;
 }
 
 .checkbox {

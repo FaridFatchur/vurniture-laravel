@@ -28,6 +28,55 @@ class ProductController extends Controller
         return view('home.home', compact('dataProduct'));
     }
 
+    // MENAMPILKAN PRODUK PER KATEGORI
+    public function bed()
+    {
+        $dataProduct=Product::where('cat', 'bed')->get();
+
+        return view('home.category.bed', compact('dataProduct'));
+    }
+    public function bookcase()
+    {
+        $dataProduct=Product::where('cat', 'bookcase')->get();
+
+        return view('home.category.bookcase', compact('dataProduct'));
+    }
+    public function cabinet()
+    {
+        $dataProduct=Product::where('cat', 'cabinet')->get();
+
+        return view('home.category.cabinet', compact('dataProduct'));
+    }
+    public function chair()
+    {
+        $dataProduct=Product::where('cat', 'chair')->get();
+
+        return view('home.category.chair', compact('dataProduct'));
+    }
+    public function desk()
+    {
+        $dataProduct=Product::where('cat', 'desk')->get();
+
+        return view('home.category.desk', compact('dataProduct'));
+    }
+    public function sofa()
+    {
+        $dataProduct=Product::where('cat', 'sofa')->get();
+
+        return view('home.category.sofa', compact('dataProduct'));
+    }
+    public function table()
+    {
+        $dataProduct=Product::where('cat', 'table')->get();
+
+        return view('home.category.table', compact('dataProduct'));
+    }
+    public function wardrobe()
+    {
+        $dataProduct=Product::where('cat', 'wardrobe')->get();
+
+        return view('home.category.wardrobe', compact('dataProduct'));
+    }
 
 
     /**

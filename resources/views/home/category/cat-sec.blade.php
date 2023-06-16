@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="cat-bd">
     <!-- header section -->
     <header class="header">
         <div class="logo">
@@ -26,29 +26,46 @@
         </div>
 
         <ul class="navbar">
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li><a href="{{ url('/categories') }}">Categories</a></li>
-            <li><a href="{{ url('/about-us') }}">About Us</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/categories">Categories</a></li>
+            <li><a href="/about-us">About Us</a></li>
         </ul>
         
         <div class="btn">
             <a href="#"><i class='bx bx-search' id="search-btn"></i></a>
             <a href="{{ url('/vurniture/cart') }}"><i class='bx bx-shopping-bag' id="shop-btn"></i></a>
-            <a href="{{ url('/vurniture/login') }}"><i class='bx bx-user' id="user-btn"></i></a>
+            <a href="{{ url('/login') }}"><i class='bx bx-user' id="user-btn"></i></a>
             <a href="#"><i class='bx bx-menu' id="menu-btn"></i></a>
         </div>
     </header>
-
-    <div class="status-container">
-        <div class="status-content">
-            <h3>Success</h3>
-            <h4>
-                You have successfully ordered the product.
-                <br>
-                Thank you.
-            </h4>
-            <a href="{{ url('/trans-list') }}" class="button-back">Go to History Order</a>
+    <!-- categories section -->
+    <section class="categories" id="categories">
+        <div class="title">
+            <h2>
+                <div class="category">
+                    @yield('category')
+                </div>
+            </h2>
         </div>
-    </div>
+
+        <!-- content section -->
+        <div class="content">
+            @yield('content')
+        </div>
+
+        <div class="row">
+            @foreach($dataProduct as $product)
+            <div class="catalog">
+                <img src="{{ url('uploads') }}/{{ $product->pic }}">
+                <h3>{{ $product->name }}</h3>
+                <h4>Rp{{ number_format($product->price) }}</h4>
+                <div class="atc-btn">
+                    <a href="{{ url('/vurniture/productdetail') }}/{{ $product->id }}" role="button">Check Now</a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </section>
+        
 </body>
 </html>

@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\HistoryController;
 
 
 /*
@@ -67,9 +68,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'userDB'])->name('user.dashboard');
 });
 
-Route::get('/trans-list', function () {
-    return view('dbuser.trans-list');
-});
+// Route::get('/trans-list', function () {
+//     return view('dbuser.trans-list');
+// });
+
+Route::get('trans-list', [HistoryController::class, 'index']);
+
+Route::get('trans-list/{id}', [HistoryController::class, 'detail']);
 
 Route::get('/inbox', function () {
     return view('dbuser.inbox');
@@ -117,10 +122,30 @@ Route::get('/vurniture/removed_from_cart', function () {
     return view('/home/cart/remove/success');
 });
 
-Route::get('vurniture/checkout_confirm', [OrderController::class, 'confirm']);
+Route::get('/vurniture/checkout_confirm', [OrderController::class, 'confirm']);
 
-Route::get('vurniture/checkout_success', function () {
+Route::get('/vurniture/checkout_success', function () {
     return view('/home/checkout/success');
 });
 
+//Route Kategori
+Route::get('/vurniture/category/bed', [ProductController::class, 'bed']);
 
+Route::get('/vurniture/category/bookcase', [ProductController::class, 'bookcase']);
+
+Route::get('/vurniture/category/cabinet', [ProductController::class, 'cabinet']);
+
+Route::get('/vurniture/category/chair', [ProductController::class, 'chair']);
+
+Route::get('/vurniture/category/desk', [ProductController::class, 'desk']);
+
+Route::get('/vurniture/category/sofa', [ProductController::class, 'sofa']);
+
+Route::get('/vurniture/category/table', [ProductController::class, 'table']);
+
+Route::get('/vurniture/category/wardrobe', [ProductController::class, 'wardrobe']);
+
+//ROUTE UNTUK CART YANG KOSONG
+// Route::get('/vurniture/cart', function () {
+//     return view('/home/order');
+// });

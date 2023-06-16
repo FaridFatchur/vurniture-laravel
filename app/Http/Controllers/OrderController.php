@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use App\Models\User;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\OrderDetail;
@@ -43,6 +44,9 @@ class OrderController extends Controller
         }
 
         // validate orders
+        if (!Auth::check()) {
+            return view('home.cart.add.failed-nouser');
+        }
         $check_order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
         
         // database orders
@@ -52,6 +56,7 @@ class OrderController extends Controller
             $order->date = $date;
             $order->status = 0;
             $order->total = 0;
+            // $order->code = mt_rand(1000, 9999);
             $order->save();
         }
 
@@ -117,6 +122,20 @@ class OrderController extends Controller
 
     public function confirm()
     {
+        $user = User::where('id', Auth::user()->id)->first();
+
+        if (empty($user->address))
+        {
+            // Alert::error('', 'Error');
+            return redirect('/dashboard');
+        }
+
+        if (empty($user->phoneNum))
+        {
+            // Alert::error('', 'Error');
+            return redirect('/dashboard');
+        }
+
         $order = Order::where('user_id', Auth::user()->id)->where('status', 0)->first();
         // dd($order->all());
         $order_id = $order->id;
